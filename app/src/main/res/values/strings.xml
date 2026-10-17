@@ -21,4 +21,10 @@
     <string name="exp_1_2">1 - 2 Tahun</string>
     <string name="exp_3_5">3 - 5 Tahun</string>
     <string name="exp_more_5">&gt; 5 Tahun</string>
+
+    <!-- Pilihan Skill -->
+    <string name="title_pilih_skill">Pilih Skill Anda :</string>
+    <string name="skill_android">Android</string>
+    <string name="skill_uiux">UI/UX</string>
+    <string name="skill_web">Web</string>
 </resources>
