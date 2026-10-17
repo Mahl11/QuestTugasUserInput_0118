@@ -3,6 +3,7 @@ package com.example.questtugasuserinput_0118
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,6 +18,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -50,6 +52,10 @@ fun FormBiodataScreen() {
     var tglLahir by remember { mutableStateOf("") }
     var experience by remember { mutableStateOf("") }
     var expDropdownExpanded by remember { mutableStateOf(false) }
+
+    var isAndroid by remember { mutableStateOf(false) }
+    var isUiUx by remember { mutableStateOf(false) }
+    var isWeb by remember { mutableStateOf(false) }
 
     val expOptions = listOf(
         stringResource(id = R.string.exp_1_2),
@@ -104,20 +110,25 @@ fun FormBiodataScreen() {
                     modifier = Modifier
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState()),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.Start
                 ) {
-                    Text(
-                        text = stringResource(id = R.string.form_title),
-                        fontWeight = FontWeight.Bold,
-                        fontSize = dimensionResource(id = R.dimen.text_size_title).value.sp,
-                        color = colorResource(id = R.color.purple_primary)
-                    )
-                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xs)))
-                    Text(
-                        text = stringResource(id = R.string.form_subtitle),
-                        fontSize = dimensionResource(id = R.dimen.text_size_subtitle).value.sp,
-                        color = colorResource(id = R.color.text_secondary)
-                    )
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.form_title),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = dimensionResource(id = R.dimen.text_size_title).value.sp,
+                            color = colorResource(id = R.color.purple_primary)
+                        )
+                        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xs)))
+                        Text(
+                            text = stringResource(id = R.string.form_subtitle),
+                            fontSize = dimensionResource(id = R.dimen.text_size_subtitle).value.sp,
+                            color = colorResource(id = R.color.text_secondary)
+                        )
+                    }
                     Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_md)))
 
                     // Input Baris Nama Depan & Belakang
@@ -213,6 +224,61 @@ fun FormBiodataScreen() {
                                     )
                                 }
                             }
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_md)))
+
+                    // Pilihan Skill
+                    Text(
+                        text = stringResource(id = R.string.title_pilih_skill),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = dimensionResource(id = R.dimen.text_size_body).value.sp,
+                        color = colorResource(id = R.color.text_primary)
+                    )
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xs)))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.clickable { isAndroid = !isAndroid }
+                        ) {
+                            Checkbox(
+                                checked = isAndroid,
+                                onCheckedChange = { isAndroid = it }
+                            )
+                            Text(
+                                text = stringResource(id = R.string.skill_android),
+                                fontSize = dimensionResource(id = R.dimen.text_size_body).value.sp
+                            )
+                        }
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.clickable { isUiUx = !isUiUx }
+                        ) {
+                            Checkbox(
+                                checked = isUiUx,
+                                onCheckedChange = { isUiUx = it }
+                            )
+                            Text(
+                                text = stringResource(id = R.string.skill_uiux),
+                                fontSize = dimensionResource(id = R.dimen.text_size_body).value.sp
+                            )
+                        }
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.clickable { isWeb = !isWeb }
+                        ) {
+                            Checkbox(
+                                checked = isWeb,
+                                onCheckedChange = { isWeb = it }
+                            )
+                            Text(
+                                text = stringResource(id = R.string.skill_web),
+                                fontSize = dimensionResource(id = R.dimen.text_size_body).value.sp
+                            )
                         }
                     }
                     Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_md)))
