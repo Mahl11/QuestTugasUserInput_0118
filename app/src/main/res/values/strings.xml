@@ -15,4 +15,10 @@
     <string name="desc_calendar_icon">Ikon Kalender</string>
     <string name="desc_dropdown_icon">Ikon Dropdown</string>
     <string name="desc_ghibli_bg">Latar Belakang Header Ghibli</string>
+
+    <!-- Field Experience -->
+    <string name="label_experience">Experience</string>
+    <string name="exp_1_2">1 - 2 Tahun</string>
+    <string name="exp_3_5">3 - 5 Tahun</string>
+    <string name="exp_more_5">&gt; 5 Tahun</string>
 </resources>
