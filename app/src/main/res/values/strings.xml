@@ -9,4 +9,10 @@
 
     <!-- Field Kontak -->
     <string name="label_email">Email</string>
+
+    <!-- Field Tanggal Lahir & Aset -->
+    <string name="label_tgl_lahir">Tgl Lahir</string>
+    <string name="desc_calendar_icon">Ikon Kalender</string>
+    <string name="desc_dropdown_icon">Ikon Dropdown</string>
+    <string name="desc_ghibli_bg">Latar Belakang Header Ghibli</string>
 </resources>
