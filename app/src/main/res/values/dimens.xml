@@ -11,4 +11,19 @@
     <dimen name="corner_card">28dp</dimen>
     <dimen name="corner_field">12dp</dimen>
     <dimen name="corner_button">24dp</dimen>
+
+    <!-- Component Heights & Sizes -->
+    <dimen name="header_bg_height">250dp</dimen>
+    <dimen name="floating_box_top">200dp</dimen>
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="icon_sm">20dp</dimen>
+    <dimen name="icon_md">24dp</dimen>
+    <dimen name="elevation_card">12dp</dimen>
+    <dimen name="divider_thickness">1dp</dimen>
+
+    <!-- Typography -->
+    <dimen name="text_size_title">22sp</dimen>
+    <dimen name="text_size_subtitle">12sp</dimen>
+    <dimen name="text_size_body">14sp</dimen>
+    <dimen name="text_size_label">15sp</dimen>
 </resources>
