@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Padding -->
+    <dimen name="padding_xs">4dp</dimen>
+    <dimen name="padding_sm">8dp</dimen>
+    <dimen name="padding_md">16dp</dimen>
+    <dimen name="padding_lg">24dp</dimen>
+    <dimen name="padding_xl">32dp</dimen>
+
+    <!-- Corner Radius -->
+    <dimen name="corner_card">28dp</dimen>
+    <dimen name="corner_field">12dp</dimen>
+    <dimen name="corner_button">24dp</dimen>
+</resources>
