@@ -18,6 +18,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -56,6 +58,8 @@ fun FormBiodataScreen() {
     var isAndroid by remember { mutableStateOf(false) }
     var isUiUx by remember { mutableStateOf(false) }
     var isWeb by remember { mutableStateOf(false) }
+
+    var isSubmitted by remember { mutableStateOf(false) }
 
     val expOptions = listOf(
         stringResource(id = R.string.exp_1_2),
@@ -281,7 +285,28 @@ fun FormBiodataScreen() {
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_md)))
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_lg)))
+
+                    // Tombol Proceed
+                    Button(
+                        onClick = {
+                            isSubmitted = true
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(dimensionResource(id = R.dimen.button_height)),
+                        shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_button)),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = colorResource(id = R.color.button_disabled)
+                        )
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.btn_proceed),
+                            color = colorResource(id = R.color.white),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = dimensionResource(id = R.dimen.text_size_label).value.sp
+                        )
+                    }
                 }
             }
         }
