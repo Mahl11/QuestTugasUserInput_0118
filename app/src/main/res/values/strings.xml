@@ -6,4 +6,7 @@
     <!-- Field Nama -->
     <string name="label_nama_depan">Nama Depan</string>
     <string name="label_nama_belakang">Nama Belakang</string>
+
+    <!-- Field Kontak -->
+    <string name="label_email">Email</string>
 </resources>
