@@ -2,6 +2,7 @@ package com.example.questtugasuserinput_0118
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,11 +11,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -41,6 +47,19 @@ fun FormBiodataScreen() {
     var namaDepan by remember { mutableStateOf("") }
     var namaBelakang by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
+    var tglLahir by remember { mutableStateOf("") }
+    var experience by remember { mutableStateOf("") }
+    var expDropdownExpanded by remember { mutableStateOf(false) }
+
+    val expOptions = listOf(
+        stringResource(id = R.string.exp_1_2),
+        stringResource(id = R.string.exp_3_5),
+        stringResource(id = R.string.exp_more_5)
+    )
+
+    val skillAndroid = stringResource(id = R.string.skill_android)
+    val skillUiUx = stringResource(id = R.string.skill_uiux)
+    val skillWeb = stringResource(id = R.string.skill_web)
 
     Scaffold(
         modifier = Modifier.fillMaxSize()
@@ -136,6 +155,67 @@ fun FormBiodataScreen() {
                         modifier = Modifier.fillMaxWidth()
                     )
                     Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_sm)))
+
+                    // Input Baris Tgl Lahir & Experience Dropdown
+                    Row(
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        OutlinedTextField(
+                            value = tglLahir,
+                            onValueChange = { tglLahir = it },
+                            label = { Text(text = stringResource(id = R.string.label_tgl_lahir)) },
+                            singleLine = true,
+                            trailingIcon = {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.ic_calendar),
+                                    contentDescription = stringResource(id = R.string.desc_calendar_icon),
+                                    modifier = Modifier.size(dimensionResource(id = R.dimen.icon_sm)),
+                                    tint = colorResource(id = R.color.text_secondary)
+                                )
+                            },
+                            shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_field)),
+                            modifier = Modifier.weight(1f)
+                        )
+                        Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.padding_sm)))
+                        Box(modifier = Modifier.weight(1f)) {
+                            OutlinedTextField(
+                                value = experience,
+                                onValueChange = {},
+                                readOnly = true,
+                                singleLine = true,
+                                label = { Text(text = stringResource(id = R.string.label_experience)) },
+                                trailingIcon = {
+                                    IconButton(onClick = { expDropdownExpanded = !expDropdownExpanded }) {
+                                        Icon(
+                                            painter = painterResource(id = R.drawable.ic_dropdown),
+                                            contentDescription = stringResource(id = R.string.desc_dropdown_icon),
+                                            modifier = Modifier.size(dimensionResource(id = R.dimen.icon_sm)),
+                                            tint = colorResource(id = R.color.text_secondary)
+                                        )
+                                    }
+                                },
+                                shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_field)),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable { expDropdownExpanded = true }
+                            )
+                            DropdownMenu(
+                                expanded = expDropdownExpanded,
+                                onDismissRequest = { expDropdownExpanded = false }
+                            ) {
+                                expOptions.forEach { item ->
+                                    DropdownMenuItem(
+                                        text = { Text(text = item) },
+                                        onClick = {
+                                            experience = item
+                                            expDropdownExpanded = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_md)))
                 }
             }
         }
