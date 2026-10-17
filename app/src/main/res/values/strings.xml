@@ -27,4 +27,14 @@
     <string name="skill_android">Android</string>
     <string name="skill_uiux">UI/UX</string>
     <string name="skill_web">Web</string>
+
+    <!-- Tombol & Ringkasan Hasil -->
+    <string name="btn_proceed">Proceed</string>
+    <string name="summary_title">Data Hasil Input Biodata</string>
+    <string name="summary_nama">Nama Lengkap : %1$s %2$s</string>
+    <string name="summary_email">Email : %1$s</string>
+    <string name="summary_tgl_lahir">Tgl Lahir : %1$s</string>
+    <string name="summary_experience">Experience : %1$s</string>
+    <string name="summary_skills">Skill : %1$s</string>
+    <string name="text_belum_memilih">Belum memilih</string>
 </resources>
